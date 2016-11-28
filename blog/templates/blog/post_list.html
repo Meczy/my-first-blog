@@ -1,39 +1,32 @@
- <html>
+{% load staticfiles %}
+    <html>
         <head>
-               <div>
-        <h1><a href="/">Django Meczy</a></h1>
-    </div>
+            <title>Meczy</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        </head>
 
-    {% for post in posts %}
-        <div>
-            <p>published: {{ post.published_date }}</p>
-            <h1><a href="">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
+        <body>
+            <div class="page-header">
+                <h1><a href="/">Django Meczy</a></h1>
+            </div>
+
+             <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% for post in posts %}
+                    <div class="post">
+                        <div class="date">
+                            {{ post.published_date }}
+                        </div>
+                        <h1><a href="">{{ post.title }}</a></h1>
+                        <p>{{ post.text|linebreaksbr }}</p>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    {% endfor %}
-	  <div>
-                <h1><a href="">Canis per fluvium carnem ferens.</a></h1>
-		<p>  Amittit merito proprium qui alienum adpetit.
-    Canis, per fluvium carnem cum ferret, natans
-    lympharum in speculo vidit simulacrum suum,
-    aliamque praedam ab altero ferri putans
-    eripere voluit; verum decepta aviditias
-    et quem tenebat ore dimisit cibum,
-    nec quem petebat adeo potuit tangere.
-		</p>
-            </div>
-
-
-            <div>
-                <p>published: 27/11/16, 12:14</p>
-                <h2><a href="">Traducción</a></h2>
-                <p> Con razón pierde lo propio el que busca lo ajeno.
-    El perro, lleveba un trozo de carne mientras nadaba por el río
-    cuando vio su imagen en el espejo de las aguas
-    pensando que otro perro llevaba también otra presa 
-    quiso quitársela, la avaricia resultó burlada
-    y dejó caer de su boca la comida que tenía
-    y ni siquiera pudo tocar la comida que intentaba alcanzar.</p>
-            </div>
+    
         </body>
     </html>
